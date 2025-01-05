@@ -37,7 +37,7 @@ function z2() {
 
 //example 3
 function z3() {
-    var i = 1;
+
     for(let i=0; i<5; i++) {
         setTimeout(function() {
             console.log(i);
@@ -46,4 +46,19 @@ function z3() {
     console.log("printed before 1");
 } 
 
-z3();
+//z3();
+
+//example 4
+function y() {
+    function close(y) {
+        for(var i=0; i<5; i++) {
+            setTimeout(function() {
+                console.log(x);
+            }, y*1000);
+        }
+        close(i);
+    }
+    console.log("printed before 1");
+} 
+
+y();
