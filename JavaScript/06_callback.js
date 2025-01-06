@@ -7,8 +7,10 @@ function x(y) {
     y();
 }
 
-function y() {
+x(function y() {
     console.log("y called");
-};
+});
 
-x(y);
+// Callbacks: Functions that are passed as arguments to other functions and executed later.
+// Asynchronous Operations: Functions like setTimeout that allow code to run after a specified delay,
+// without blocking the execution of subsequent code
