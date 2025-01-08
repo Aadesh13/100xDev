@@ -55,10 +55,10 @@ function y() {
             setTimeout(function() {
                 console.log(x);
             }, y*1000);
-        }
-        close(i);
+        }     
     }
+    close(1);
     console.log("printed before 1");
 } 
 
-y();
+//y();
