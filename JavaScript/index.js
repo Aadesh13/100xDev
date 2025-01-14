@@ -1,9 +1,4 @@
-console.log(b);
-X();
+const GITHUB_API = "https://api.github.com/users/Aadesh13";
 
-var b = 10;
-
-function X() {
-    var a = 10;
-    console.log(a);
-}
+const user = fetch(GITHUB_API);
+console.log(user);
