@@ -1,3 +1,14 @@
+/**
+* What is async ?
+* What is await ?
+* How async await works behind the scenes?
+* Examples of using async/await
+* Error Handling
+* Interviews
+* Async await vs Promise.then/.catch
+*/
+
+
 const p1 = new Promise(function(resolve, reject) {
     setTimeout(() => {
         resolve("Promise resolved p1");
@@ -26,8 +37,16 @@ async function handlePromise() {
 
 handlePromise();
 
+// function getData() {
+//     //JS engine will not wait for the promise to resolve
+//     p1.then(res => console.log(res));
+//     console.log("hello");
+// }
+
+// getData();
+
 //realworld example
-const API_URL = "https://api.github.com/users/Aadesh13";
+ const API_URL = "https://api.github.com/users/Aadesh13";
 
 async function handlePromise2() {
     try {
@@ -40,3 +59,5 @@ async function handlePromise2() {
 }
 
 handlePromise2();
+
+
