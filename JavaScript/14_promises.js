@@ -21,7 +21,7 @@ promise.then(function(orderId) {
 })
 
 //promise chaining
-createOrder(cart)
+createOrder(cart) 
  .then(function(orderId) {
      return proceedToPayment(orderId);
  })
