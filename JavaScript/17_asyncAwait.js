@@ -27,7 +27,7 @@ async function handlePromise() {
     console.log("Hii !!");
 
     const val = await p1;               
-    console.log(val);
+    console.log(val); 
     console.log("hello 1");             //JS engine will wait for the promise to resolve
 
     const val2 = await p2;                              
@@ -46,7 +46,7 @@ handlePromise();
 // getData();
 
 //realworld example
- const API_URL = "https://api.github.com/users/Aadesh13";
+const API_URL = "https://api.github.com/users/Aadesh13";
 
 async function handlePromise2() {
     try {
@@ -59,5 +59,9 @@ async function handlePromise2() {
 }
 
 handlePromise2();
+
+setInterval(() => {
+    console.log("This runs every second while promises are being handled...");
+}, 1000);
 
 
