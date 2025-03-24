@@ -41,7 +41,7 @@ app.get("/", function(req, res) {
 app.post("/", function(req, res) {
     const isHealthy = req.body.isHealthy;
      
-    //add a unhealthy kidney
+    //add a kidney
     users[0].kidneys.push({
         healthy: isHealthy
     })
