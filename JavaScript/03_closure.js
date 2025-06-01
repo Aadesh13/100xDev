@@ -50,14 +50,14 @@ function z3() {
 
 //example 4
 function y() {
-    function close(y) {
-        for(var i=0; i<5; i++) {
+    for(var i=0; i<=5; i++) {
+        function close(i) {
             setTimeout(function() {
-                console.log(x);
-            }, y*1000);
-        }     
+                console.log(i);
+            }, i*1000);
+        }
+        close(i);     
     }
-    close(1);
     console.log("printed before 1");
 } 
 
