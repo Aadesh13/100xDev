@@ -30,7 +30,7 @@ app.get('/kidney-checkup', userMiddleware, kidneyMiddleware, (req , res) => {
   res.send("Your kdiney is healthy");
 });
 
-app.get('/heart-checkup', userMiddleware, kidneyMiddleware, (req, res) => {
+app.get('/heart-checkup', userMiddleware, (req, res) => {
   res.send("Your heart is healthy");
 });
 
