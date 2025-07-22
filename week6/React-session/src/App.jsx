@@ -1,23 +1,47 @@
 import {useState} from "react"
 import {memo} from "react"
 
-function App() {
-  const [firstTitle, setFirstTitle] = useState("Messi is the GOAT");
+let globalId = 0;
 
-  function changeTitle() {
-    setFirstTitle(Math.random() + " is the GOAT");
+function App() {
+  const [todos, setTodos] = useState([{
+    id : globalId++,
+    title: "Learn React",
+    description: "Learn React with the best resources available online"
+  }, {
+    id: globalId++,
+    title: "Learn JavaScript",
+    description: "JavaScript is the language of the web"
+  }, {
+    id: globalId++,
+    title: "Learn CSS",
+    description: "CSS is used to style web pages"
+  }]);
+
+  function addTodo() {
+    const nextId = globalId++;
+    setTodos([...todos, {
+      id: nextId,
+      title:Math.random(),
+      description: Math.random()
+    }])
   }
 
   return (
-    <div>
-      <button onClick={changeTitle}>Click me to change title</button>
-      <Header title={firstTitle}/> 
-      <Header title="Messi is the GOAT" />
-      <Header title="Messi is the GOAT" />
-      <Header title="Ronaldo is the GOAT" />             
-    </div>
+    <>
+      <button onClick = {addTodo}>Add Todo</button>
+      {todos.map(todo => <Todo key={todo.id} title={todo.title} description={todo.description} />)}
+    </>
   )
 }
+
+function Todo({title, description}) {
+  return <div>
+    <h2>{title}</h2>
+    <h4>{description}</h4>
+  </div>
+}
+
 
 //A parent component re-render triggers all children re-rendering
 //1. pushing the state down to minimize re rendering
@@ -35,11 +59,5 @@ function App() {
 //   <Header title={firstTitle}></Header>
 //   </>
 // }
-
-const Header = memo(function({title}) {
-  return <div>
-    {title}
-  </div>
-})
 
 export default App
