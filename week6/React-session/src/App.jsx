@@ -10,6 +10,13 @@ function App() {
           hello from the 2nd card
         </div>
       </Card>
+
+      <Card>
+        <div>
+          <h1>Card with a heading</h1>
+          <p>This card contains a heading and a paragraph.</p>
+        </div>
+      </Card>
       <Card>
         <TextComponent />
       </Card>
