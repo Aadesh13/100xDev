@@ -1,46 +1,26 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import './App.css'
+import { memo, useState , useCallback} from "react";
 
 function App() {
-  // State to keep track of which todo id is selected
-  const [id, setId] = useState(1);
+  const [count, setCount] = useState(0)
 
-  return (
-    <div>
-      <button onClick={() => setId(1)}>1</button>
-      <button onClick={() => setId(2)}>2</button>
-      <button onClick={() => setId(3)}>3</button>
-      <button onClick={() => setId(4)}>4</button>
-      <Todo id={id} />
-    </div>
-  )
+  const onClick = useCallback(() => {
+    console.log("Child clicked")
+  }, [])
+
+  return <div>
+    <Child onClick={onClick} />
+    <button onClick={() => {
+      setCount(count + 1);
+    }}>Click me {count}</button>
+  </div>
 }
 
-function Todo({ id }) {
-  // State to store the fetched todo
-  const [todos, setTodos] = useState({});
+const Child = memo(({onClick}) => {
+  console.log("child render")
 
-  useEffect(() => {
-    // Fetch todo when id changes using fetch API
-    // fetch("https://sum-server-faraz.onrender.com/todo?id=" + id)
-    //   .then(async function (res) {
-    //     const json = await res.json();
-    //     setTodos(json.todo);
-    //   })
-    // Alternative: you could use axios here instead of fetch
-    axios.get("https://sum-server-faraz.onrender.com/todo?id="+id)
-    .then(response => {
-      setTodos(response.data.todo)
-    })
-  }, [id])
+  return <div>
+    <button onClick={onClick}>Button clicked</button>
+  </div>
+})
 
-  return (
-    <div>
-      <h1>{todos.title}</h1>
-      <h4>{todos.description}</h4>
-    </div>
-  )
-}
-
-export default App
+export default App;
